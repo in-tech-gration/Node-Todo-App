@@ -31,11 +31,11 @@ switch (command) {
 
     break
   case "del":
-    const target = todos.find((t) => t.id === value)
+    const target = todos.find((t) => t.id === parseInt(value))
     if (target) {
-      todos = todos.filter((t) => t.id !== value)
+      todos = todos.filter((t) => t.id !== parseInt(value))
       saveInJsonFile(todos)
-      console.log(chalk.green("Deleted todo: " + target.todo))
+      chalkify("Deleted todo: " + target.todo, "magenta")
     } else {
       console.log(chalk.red("Todo not found"))
     }
